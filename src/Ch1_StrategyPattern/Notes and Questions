@@ -1,0 +1,40 @@
+- Motivasyon
+    + Object-Oriented bir sistemde class'tan class'a değişiklik gösteren yapıları yönetmek
+
+- Çözüm
+    + Sistemde değişken olan kısımları belirleyip bunları ayrı bir şekilde yönetmek
+    ** Burada değişken kısımlar kendi içlerinde kısıtlı sayıda farklılaşması gerekiyor.
+        Örn; fly tavrı için 3-5 farklı tip olmalı.
+        Anti örn; herhangi bir butona click listener eklemek: Burada sayısız şekil olacağından dolayı strategy pattern
+            bir işe yaramayacaktır.
+
+- Strategy Pattern nedir?
+    + Interface ve Composition kavramlarını bir arada kullanıp sadece interface kullanmanın getirdiği ek maliyetleri
+        ortadan kaldıran bir tasarım kalıbıdır.
+
+- Strategy Pattern nasıl kullanılır?
+    + Değişken yapılar kendi içlerinde bir class hiyerarşisi ile yapısallaştırılır. Bu classlara behavior class denir
+    + Behavior class objeleri gerekli class'ın data field alanına interface ile property olarak eklenir.
+    + Bu behavior class property'si hangi concrete classı barındırıyorsa onun özelliklerine sahiptir. Bu property'i
+        değiştirerek run-time'de istediğimiz methodları o anki class'a ekleyip çıkartabiliriz.
+
+- Terimler
+    + Behavior class
+    + Programming to interface
+    + Composition
+    + Runtime'de fonksiyon/method eklemek/çıkartmak/değiştirmek
+
+
+- Questions
+    + Behavior class yerine enum kullansaydık ve her bir enum farklı bir behavior temsil etseydi ne olurdu?
+        -> Bu sefer bir fonksiyon altına sürekli if else koşulları eklemek gerekirdi. Eğer 10 tane behavior tipi varsa
+            ve her bir behavior için 10 tane farklı biçim (somut yapı) varsa 10*10=100 tane toplamda if-else eklemek
+            gerekirdi. Her eklenen somut behavior için de if-else koşulu koymak gerekirdi
+            Örn; FlyBehavior 3 tane somut davranışa sahip: FlyNoWay, FlyRocketPowered, FlyWithWings. Bunları enum ile
+                tutmak 3 enum değeri olmasını ve 3 if-else koşulu olması gerekli kılardı. Ayrıca 4. bir somut davranış
+                eklenirse, FlyHigh olsun, bunun için behavior kontrolü yaptığımız her yere if koşulu eklemeliyiz.
+
+    + Neden sadece interface kullanmak yetmiyor?
+       -> Diyelim ki 100 tane class var. Interface ile gelen bir method 30 tane class'ta bir şekilde, diğer 70 tanesinde
+            de farklı bir şekilde implement ediliyor. Bu durumda bir implementasyon 30 kere copy-paste, diğer implementasyon
+                70 kere copy paste yapılmalı.
