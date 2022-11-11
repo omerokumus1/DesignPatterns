@@ -1,0 +1,6 @@
++ Subject objesinin observer içerisinde tutulması observer'ın subject'ten remove edilmesini kolaylaştırır.
+    Birden çok subject varsa Liste ile halledilebilir.
+
+
++ StatisticsDisplay ve ForecastDisplay implement edilmedi. Vereceği çıktı önemsiz herhangi bir önemi olmamakla birlikte
+    implement edilebilirler.
